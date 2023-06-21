@@ -33,7 +33,8 @@ class Main {
             stringSeq[i] = br.readLine();
             stringCnt.put(stringSeq[i], 0);
         }
-
+        
+        /* DFS : 각 위치의 모든 문자열의 경우 찾기 */
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 StringBuilder sb = new StringBuilder();
@@ -42,6 +43,7 @@ class Main {
             }
         }
 
+        /* 출력 */
         for (String str : stringSeq) {
             System.out.println(stringCnt.get(str));
         }
