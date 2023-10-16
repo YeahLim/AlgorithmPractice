@@ -4,7 +4,7 @@ import java.util.*;
 /***
  * 
  * 		1. 섬 별로 숫자로 나누기
- * 		2. bfs 돌려서 숫자로 붙이기
+ * 		2. 좌표 전체 돌려서 가장 가까운 섬 찾기
  *
  */
 
@@ -50,8 +50,7 @@ class Main {
 				num++;
 			}
 		}
-		
-//		printMap();
+
 		answer = N * N;
 		
 		/* 한 섬에서 다른 섬으로 다리 짓기 */
@@ -78,15 +77,19 @@ class Main {
 		Queue<Point> pointQ = new LinkedList<>();
 		pointQ.add(new Point(x, y));
 		visited[x][y] = true;
-//		System.out.println("----------------------  " + num);
+		
 		while (!pointQ.isEmpty()) {
 			Point curr = pointQ.poll();
 			
-//			System.out.println(curr.toString() + " num : " + map[curr.x][curr.y]);
+			// 현재 다리보다 길 경우
+			if (answer < curr.count){
+				break;
+			}
 			
 			// 다리 연결 성공
 			if (map[curr.x][curr.y] != num && map[curr.x][curr.y] != 0) {
-				answer = Math.min(answer, curr.count-1);
+				answer = Math.min(answer, curr.count - 1);
+				break;
 			}
 			
 			for (int i = 0; i < dx.length; i++) {
