@@ -45,8 +45,8 @@ class Main {
 			
 			// 현재 문자의 개수가 num보다 클 때
 			if (count[left] >= num) {
-				int curCount = 1; // 현재 문자의 개수
-				for (int j = i+1; j < str.length(); j++) {
+				int curCount = 0; // 현재 문자의 개수
+				for (int j = i; j < str.length(); j++) {
 					int right = str.charAt(j) - 'a';
 					
 					// 첫번째 문자와 마지막 문자가 같을때
