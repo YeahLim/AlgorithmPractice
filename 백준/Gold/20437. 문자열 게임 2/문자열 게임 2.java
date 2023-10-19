@@ -17,12 +17,6 @@ class Main {
 			str = br.readLine();
 			num = Integer.parseInt(br.readLine());
 			
-			// 길이보다 숫자가 작은 경우
-			if  (num == 1) {
-				System.out.println("1 1");
-				continue;
-			}
-			
 			getStringLength();			
 			
 			/* 출력 */
@@ -70,7 +64,6 @@ class Main {
 		int[] count = new int[26];
 		
 		for (char s : str.toCharArray()) {
-//			System.out.println(s-'a');
 			count[s - 'a']++;
 		}
 		return count;
