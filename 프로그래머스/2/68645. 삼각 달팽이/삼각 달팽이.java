@@ -73,7 +73,7 @@ class Solution {
  }
  
  private void bottomUp(int start, int end, int col) {
- 	for (int i = start; i > end && num < max; i--) {
+ 	for (int i = start; i >= end && num < max; i--) {
  		if (snail[i][i-col] != 0) {
  			return;
 		}
