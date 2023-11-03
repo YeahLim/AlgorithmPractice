@@ -10,11 +10,9 @@ class Main {
     	int right = 2;
     	int diff = 0;
     	List<Integer> answer = new ArrayList<>();
-//    	System.out.println((right * right - left * left) % 1);
     	
     	while (right * right - (right-1) * (right-1) <= G) {
-    		
-//    		
+		
     		
     		diff = right * right - left * left;
     		
@@ -41,6 +39,7 @@ class Main {
     		return;
     	}
     	
+    	Collections.sort(answer);
     	for (int a : answer) {
     		System.out.println(a);
     	}
