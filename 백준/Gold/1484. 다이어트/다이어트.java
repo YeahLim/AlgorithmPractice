@@ -24,13 +24,8 @@ class Main {
     		}
     		else {
     			answer.add(right);
-    			
-    			if (left + 1 == right) {
-    				right++;
-    			}
-    			else {
-    				left++;
-    			}
+                left++;
+    		
     		}	
     	}
     	
