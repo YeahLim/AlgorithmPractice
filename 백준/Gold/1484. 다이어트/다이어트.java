@@ -9,7 +9,7 @@ class Main {
     	int left = 1;
     	int right = 2;
     	int diff = 0;
-    	List<Integer> answer = new ArrayList<>();
+    	StringBuilder answer = new StringBuilder();
     	
     	while (right * right - (right-1) * (right-1) <= G) {
 		
@@ -23,21 +23,19 @@ class Main {
     			left++;
     		}
     		else {
-    			answer.add(right);
-                left++;
-    		
+    			answer.append(right);
+    			answer.append("\n");
+   				left++;
+    			
     		}	
     	}
     	
-    	if (answer.isEmpty()) {
+    	if (answer.toString().equals("")) {
     		System.out.println(-1);
     		return;
     	}
     	
-    	Collections.sort(answer);
-    	for (int a : answer) {
-    		System.out.println(a);
-    	}
+    	System.out.print(answer);
     	
     }
     
