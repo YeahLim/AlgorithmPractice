@@ -41,7 +41,6 @@ class Main {
     		return;
     	}
     	
-    	Collections.sort(answer);
     	for (int a : answer) {
     		System.out.println(a);
     	}
