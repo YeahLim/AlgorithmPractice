@@ -1,14 +1,12 @@
 import java.util.*;
 
-// 1. 선택 로직
-// 2. 삭제 로직
 
 class Solution {
     public String solution(int n, int k, String[] cmd) {
         
         int pointer = k;
         
-        Node[] nodes = new Node[1000001];
+        Node[] nodes = new Node[n];
         nodes[0] = new Node();
         for (int i = 1; i < n; i++) {
             nodes[i] = new Node();
@@ -17,7 +15,7 @@ class Solution {
         }
         
         Stack<Node> deleteStack = new Stack<>();
-        Node now = nodes[k];
+        Node now = nodes[k]; // 현재 선택된 행의 노드
         for (String c : cmd) {
             if (c.startsWith("U ")) {
                 int count = Integer.parseInt(c.split(" ")[1]); 
