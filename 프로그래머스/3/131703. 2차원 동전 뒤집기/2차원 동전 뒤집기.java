@@ -45,7 +45,7 @@ class Solution {
     }
     
     private void reverseRow(int row) {        
-        for (int i = 0; i < colSize; i++) {
+        for (int i = 0; i < colSize; i++) { // colSize만큼 돌려야하는데, rowSize만큼 돌려서 틀림... 주의주의... 이런 실수 아주 위험해!
             board[row][i] = (board[row][i] + 1) % 2;
         }
     }
@@ -63,12 +63,13 @@ class Solution {
                 }    
             }
             
+            // 열을 뒤집어야하는 경우
             if (count == rowSize) {
-                // System.out.println("열 : " + col);
                 reversedCount++;
                 targetCount++;
             }
             
+            // target의 열과 일치하는 경우
             if (count == 0) {
                 targetCount++;
             }
@@ -84,15 +85,4 @@ class Solution {
         return -1;
     }
     
-    private void printBoard() {
-          
-        for (int row = 0; row < rowSize; row++) {
-            for (int col = 0; col < colSize; col++) {
-                System.out.print(board[row][col] + " ");
-            }
-            System.out.println();
-        }  
-        
-        System.out.println("---------");
-    }
 }
