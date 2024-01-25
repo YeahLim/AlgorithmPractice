@@ -40,19 +40,20 @@ class Main {
 		
 		
 		// 출력
+        StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
 				if (visited[i][j] || map[i][j] == 0) {
-					System.out.print(map[i][j] + " ");
+					sb.append(map[i][j]).append(" ");
 				}
 				else {
-					System.out.print("-1 ");
+					sb.append("-1 ");
 				}
 				
 			}
-			System.out.println();
+            sb.append("\n");
 		}
-
+        System.out.println(sb);
 	}
 
 	
