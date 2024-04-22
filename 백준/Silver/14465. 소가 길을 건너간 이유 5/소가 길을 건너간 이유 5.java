@@ -27,35 +27,9 @@ public class Main {
 			broken[num] = true;
 		}
 		
-		
-		// 누적합으로 연속된 K개의 신호등 있는지 확인
-		int count = 0;
-		int max = count;
-		for (int i = 1; i <= N; i++) {
-			
-			count++;
-			
-			if (broken[i]) {
-				count = 0;
-			}
-			
-			nums[i] = count;
-			
-			if (max < count) {
-				max = count;
-			}
-		}
-		
-		// K개의 신호등이 이미 있는 경우
-		if (max >= K) {
-			System.out.println(0);
-			return;
-		}
-		
-		
-		
+	
 		// 슬라이딩 윈도우로 최소 몇 개의 신호등을 수리해야하는지 구하기
-		count = 0;
+		int count = 0;
 		for (int i = 1; i <= K; i++) {
 			
 			if (broken[i]) {
