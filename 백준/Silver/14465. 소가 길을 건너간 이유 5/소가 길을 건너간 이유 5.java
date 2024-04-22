@@ -20,37 +20,23 @@ public class Main {
 		int B = Integer.parseInt(st.nextToken());
 		
 		int[] nums = new int[N+1];
-		boolean[] broken = new boolean[N+1];
-		
+	
 		for (int i = 0; i < B; i++) {
 			int num = Integer.parseInt(br.readLine());
-			broken[num] = true;
+			nums[num] = 1;
 		}
 		
 	
 		// 슬라이딩 윈도우로 최소 몇 개의 신호등을 수리해야하는지 구하기
-		int count = 0;
+		int sum = 0;
 		for (int i = 1; i <= K; i++) {
-			
-			if (broken[i]) {
-				count++;
-			}			
+			sum += nums[i];
 		}
-		int min = count;
 		
+		int min = sum;
 		for (int i = K+1; i <= N; i++) {
-			
-			if (broken[i - K]) {
-				count--;
-			}
-			
-			if (broken[i]) {
-				count++;
-			}
-			
-			if (min > count) {
-				min = count;
-			}
+			sum += nums[i] - nums[i - K];	
+			min = Math.min(min,  sum);
 		}
 		
 		System.out.println(min);
