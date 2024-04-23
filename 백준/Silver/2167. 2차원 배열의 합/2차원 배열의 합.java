@@ -14,36 +14,20 @@ public class Main {
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 		
-		int[][] array = new int[N][M];
+		int[][] array = new int[N+1][M+1];
 	
-		for (int i = 0; i < N; i++) {
+		for (int i = 1; i <= N; i++) {
 			st = new StringTokenizer(br.readLine());
-			for (int j = 0; j < M; j++) {
+			for (int j = 1; j <= M; j++) {
 				array[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
 		
 		
 		// 누적합 구하기
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < M; j++) {
-				
-				if (i == 0 && j == 0) {
-					continue;
-				}
-				
-				if (i == 0) {
-					array[i][j] += array[i][j-1];
-				}
-				
-				else if (j == 0) {
-					array[i][j] += array[i-1][j];
-				}
-				
-				else {
-					array[i][j] += array[i-1][j] + array[i][j-1] - array[i-1][j-1];
-				}
-				
+		for (int i = 1; i <= N; i++) {
+			for (int j = 1; j <= M; j++) {
+				array[i][j] += array[i-1][j] + array[i][j-1] - array[i-1][j-1];
 			}
 		}
 		
@@ -52,26 +36,12 @@ public class Main {
 		int K = Integer.parseInt(br.readLine());
 		while (K-- > 0) {
 			st = new StringTokenizer(br.readLine());
-			int i = Integer.parseInt(st.nextToken()) - 1;
-			int j = Integer.parseInt(st.nextToken()) - 1;
-			int x = Integer.parseInt(st.nextToken()) - 1;
-			int y = Integer.parseInt(st.nextToken()) - 1;
+			int i = Integer.parseInt(st.nextToken());
+			int j = Integer.parseInt(st.nextToken());
+			int x = Integer.parseInt(st.nextToken());
+			int y = Integer.parseInt(st.nextToken());
 			
-			int total = array[x][y];
-			
-			if (i >= 1) {
-				total -= array[i-1][y];
-			}
-			
-			if (j >= 1) {
-				total -= array[x][j-1];
-			}
-			
-			if (i >= 1 && j >= 1) {
-				total += array[i-1][j-1];
-			}
-			
-			System.out.println(total);
+			System.out.println(array[x][y] - array[i-1][y] - array[x][j-1] + array[i-1][j-1]);
 		}
 		
 	}
