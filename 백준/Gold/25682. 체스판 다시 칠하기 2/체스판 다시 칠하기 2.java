@@ -39,11 +39,12 @@ public class Main {
 				}
 				black = !black;
 			}
-			
 			if (M % 2 == 0) {
 				black = !black;
 			}
 		}
+		
+//		printArray(array);
 		
 		// 누적합 구하기
 		for (int i = 0; i <= N; i++) {
@@ -51,11 +52,16 @@ public class Main {
 				array[i][j] += array[i][j-1];
 			}
 		}
+//		printArray(array);
 		for (int i = 1; i <= N; i++) {
 			for (int j = 0; j <= M; j++) {
 				array[i][j] += array[i-1][j];
 			}
 		}
+		
+		
+//		printArray(array);
+		
 		
 		// K * K 체스판에서 최소값,최대값 구하기
 		int min = K*K;
@@ -66,11 +72,23 @@ public class Main {
 				
 				min = Math.min(min, curr);
 				max = Math.max(max, curr);
+				
 			}
 		}
 		
+		
 		// 블랙 : 최소값, 화이트 : K*K - 최대값
 		int whiteMin = K*K - max;
-		System.out.println(Math.min(min, whiteMin));
+		System.out.println(min < whiteMin ? min : whiteMin);
+	}
+
+	private static void printArray(int[][] array) {
+		for (int i = 1; i <= N; i++) {
+			for (int j = 1; j <= M; j++) {
+				System.out.print(array[i][j] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println("-----");
 	}
 }
