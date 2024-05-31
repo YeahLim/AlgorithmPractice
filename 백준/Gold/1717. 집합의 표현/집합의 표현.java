@@ -68,7 +68,7 @@ public class Main {
 			return;
 		}
 		
-		if (a <= b) {
+		if (a < b) {
 			parent[b] = a;
 		}
 		else {
