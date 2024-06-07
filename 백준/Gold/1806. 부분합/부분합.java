@@ -22,12 +22,11 @@ public class Main {
 
 		// 투 포인터로 길이 구하기
 		int left = 0;
-		int right = 1;
+		int right = 0;
 		int sum = array[left];
-		int answer = array[left] >= S ? 1 : N+1;
-		sum += array[right];
-		
-		while (left <= right) {
+		int answer = sum >= S ? 1 : N+1;
+
+		while (right < N) {
 			
 			if (sum >= S) {
 				answer = Math.min(answer, right - left + 1);
@@ -36,15 +35,14 @@ public class Main {
 			}
 			
 			else {
-				if (right < N - 1) {
-					right++;
-					sum += array[right];
+				right++;
+				if (right == N) {
+					break;
 				}
-				else {
-					sum -= array[left];
-					left++;
-				}
+				sum += array[right];
 			}
+			
+			
 		}
 		
 		
