@@ -19,8 +19,8 @@ public class Main {
 		}
 		Arrays.sort(house);
 		
-		int start = 1;
-		int end = house[N-1] - house[0];
+		int start = 0;
+		int end = house[N-1];
 		
 		while (start <= end) {
 			int mid = (start + end) / 2;
@@ -47,6 +47,7 @@ public class Main {
 				count++;
 				lastInstalledHouse = house[i];
 			}
+			// 모든 집에 반드시 설치되어야하는 것이 아니므로
 //			else {
 //				break;
 //			}
