@@ -1,28 +1,18 @@
 #include <vector>
-#include <unordered_map>
+#include <unordered_set>
 using namespace std;
 
 int solution(vector<int> nums)
 {   
-    unordered_map<int, int> map; 
+    unordered_set<int> set; 
     
     for (auto num : nums) {
-        if (map.find(num) == map.end()) {
-            map.insert(make_pair(num, 1));
-        }
-        else {
-            map[num]++;
+        set.insert(num);
+        
+        if (set.size() == nums.size() / 2) {
+            break;
         }
     }
     
-    int answer = 0;
-    for (int i = 1; i <= 200000 && nums.size()/2 > answer; i++) {
-        if (map.find(i) == map.end()) {
-            continue;
-        }
-        map[i]--;
-        answer++;
-    }
-    
-    return answer;
+    return set.size();
 }
