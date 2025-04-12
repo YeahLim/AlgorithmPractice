@@ -7,7 +7,7 @@ bool solution(string s)
 {
     
     stack<char> stack;
-    for (auto & ch : s) {
+    for (char & ch : s) {
         if (ch == '(') {
             stack.push(ch);
         }
