@@ -20,17 +20,17 @@ vector<int> solution(vector<int> answers) {
         if (answers[i] == first[firstIndex]) {
             score[0] += 1;
         }
-        firstIndex = (firstIndex + 1) % 5;
+        firstIndex = (firstIndex + 1) % first.size();
         
         if (answers[i] == second[secondIndex]) {
             score[1] += 1;
         }
-        secondIndex = (secondIndex + 1) % 8;
+        secondIndex = (secondIndex + 1) % second.size();
         
         if (answers[i] == third[thirdIndex]) {
             score[2] += 1;
         }
-        thirdIndex = (thirdIndex + 1) % 10;
+        thirdIndex = (thirdIndex + 1) % third.size();
     }
     
     int maxScore = *max_element(score.begin(), score.end());
