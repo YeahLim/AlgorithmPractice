@@ -25,9 +25,9 @@ int solution(vector<int> scoville, int K) {
         int second = scv_pq.top();
         scv_pq.pop();
         
-        if (first == 0 && second == 0) {
-            return -1;
-        }
+        // if (first == 0 && second == 0) {
+        //     return -1;
+        // }
         
         scv_pq.push(first+second*2);
         
