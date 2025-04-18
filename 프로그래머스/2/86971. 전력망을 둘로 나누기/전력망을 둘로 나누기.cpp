@@ -5,14 +5,15 @@
 using namespace std;
 
 int n;
-vector<vector<int>> graph;
+vector<vector<int>> graph; // 인접 리스트
 
-int searchWires() {
+int searchWires(vector<int> wire) {
  
     vector<bool> visited(n+1);
-    visited[1] = true;    
+    visited[wire[0]] = true;
+    visited[wire[1]] = true; // 해당 와이어 끊기
     queue<int> wire_q;
-    wire_q.push(1);
+    wire_q.push(wire[0]);
     
     int count = 1;
     while (!wire_q.empty()) {
@@ -45,17 +46,12 @@ int solution(int n, vector<vector<int>> wires) {
     int answer = n;
     for (auto& wire : wires) {
         
-        // 2. 연결 끊기
-        graph[wire[0]].erase(remove(graph[wire[0]].begin(), graph[wire[0]].end(), wire[1]), graph[wire[0]].end());
-        graph[wire[1]].erase(remove(graph[wire[1]].begin(), graph[wire[1]].end(), wire[0]), graph[wire[1]].end());
+        // 2. bfs로 와이어 탐색
+        int count = searchWires(wire);
         
-        // 3. bfs로 와이어 탐색
-        int count = searchWires();
+        // 3. 차이 계산
         answer = min(answer, abs(n - count - count));
         
-        // 4. 연결 복구
-        graph[wire[0]].push_back(wire[1]);
-        graph[wire[1]].push_back(wire[0]);
     }
     
     return answer;
