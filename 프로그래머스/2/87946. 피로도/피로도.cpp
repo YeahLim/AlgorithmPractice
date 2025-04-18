@@ -4,8 +4,11 @@
 using namespace std;
 
 int solution(int k, vector<vector<int>> dungeons) { 
+
+    sort(dungeons.begin(), dungeons.end());
     
     int answer = 0;
+
     do {
         
         int curr = k; // 현재 피로도
