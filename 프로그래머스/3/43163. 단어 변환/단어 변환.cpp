@@ -4,7 +4,7 @@
 using namespace std;
 
 //8:48
-class Word {
+struct Word {
 public:
     string word;
     int step;
