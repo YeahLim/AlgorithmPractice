@@ -1,38 +1,36 @@
 #include <string>
 #include <vector>
-#include <algorithm>
+
 using namespace std;
-
-// 5:41
-vector<string> dictionary;
-vector<char> alphabets = {'A', 'E', 'I', 'O' ,'U'};
-
-void makeDictionary(string word) {
-    
-    if (word.size() == alphabets.size() + 1) {
-        return;
-    }
-    
-    dictionary.push_back(word);
-    
-    for (int i = 0; i < alphabets.size(); i++) {
-        makeDictionary(word + alphabets[i]);
-    }
-}
 
 int solution(string word) {
     
-    // 중복순열로 모음사전 구하기
-    makeDictionary("");
+    vector<int> weights = {781, 156, 31, 6, 1}; // 가중치
     
-    // 몇번째에 속하는지 구하기
-    int answer = 0;
-    for (string& curr : dictionary) {
-        answer++;
-        if (curr == word) {
-            break;
+    int answer = word.size();
+    
+    for (int i = 0; i < word.size(); i++) {
+        
+        int num;
+        
+        if (word[i] == 'A') {
+            num = 0;
         }
+        else if (word[i] == 'E') {
+            num = 1;
+        }
+        else if (word[i] == 'I') {
+            num = 2;
+        }
+        else if (word[i] == 'O') {
+            num = 3;
+        }
+        else if (word[i] == 'U') {
+            num = 4;
+        }
+        
+        answer += weights[i] * num;
     }
     
-    return answer - 1;
+    return answer;
 }
