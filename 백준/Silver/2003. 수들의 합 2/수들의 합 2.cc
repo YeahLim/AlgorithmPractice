@@ -24,11 +24,11 @@ int main() {
     int answer = sum == m ? 1: 0;
     while (right < n) {
 
-        if (sum <= m) {
+        if (sum < m) {
             if (right++ == n - 1) break;
             sum += array[right];
         }
-        else if (sum > m) {
+        else if (sum >= m) {
             sum -= array[left++];
         }
 
