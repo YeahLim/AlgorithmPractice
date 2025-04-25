@@ -16,7 +16,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> array[i];
     }
-    
+
     // 투 포인터로 합이 m이 되는 경우 구하기
     int left = 0;
     int right = 0;
@@ -25,13 +25,11 @@ int main() {
     while (right < n) {
 
         if (sum <= m) {
-            right++;
-            if (right == n) break;
+            if (right++ == n - 1) break;
             sum += array[right];
         }
         else if (sum > m) {
-            sum -= array[left];
-            left++;
+            sum -= array[left++];
         }
 
         if (sum == m) {
