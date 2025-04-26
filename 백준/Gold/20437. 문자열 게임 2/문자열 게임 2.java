@@ -35,16 +35,14 @@ class Main {
 		min = Integer.MAX_VALUE;
 		max = Integer.MIN_VALUE;
 		for (int i = 0; i < str.length(); i++) {
-			int left = str.charAt(i) - 'a';
-			
+
 			// 현재 문자의 개수가 num보다 클 때
-			if (count[left] >= num) {
+			if (count[str.charAt(i) - 'a'] >= num) {
 				int curCount = 0; // 현재 문자의 개수
 				for (int j = i; j < str.length(); j++) {
-					int right = str.charAt(j) - 'a';
 					
 					// 첫번째 문자와 마지막 문자가 같을때
-					if (left == right) {
+					if (str.charAt(i) == str.charAt(j)) {
 						curCount++;
 						
 						if (curCount == num) {
