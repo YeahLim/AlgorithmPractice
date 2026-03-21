@@ -16,11 +16,6 @@ class Solution {
         List<Integer> answer = new ArrayList<>();
         String curr = msg.charAt(0) + "";
         
-        // msg 길이가 1일때
-        if (msg.length() == 1) {
-            return new int[] {dict.get(curr)};
-        }
-        
         while (i < msg.length() - 1) {
             
             // 사전에 존재한다면
