@@ -16,7 +16,7 @@ vector<int> solution(string msg) {
     int i = 0;
     string curr = string(1, msg[0]);
     
-    while (i < msg.length()) {
+    while (i < msg.length() - 1) {
         
         // 사전에 존재하는 경우
         if (dict.count(curr)) {
@@ -32,6 +32,9 @@ vector<int> solution(string msg) {
             curr = string(1, msg[i]);
         }
     }
+    
+    // 마지막 색인번호 추출하기
+    answer.push_back(dict[curr]);
     
     return answer;
 }
